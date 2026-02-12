@@ -1,0 +1,220 @@
+:root{
+  --pink1:#ffd1dc;
+  --pink2:#ff7aa2;
+  --cream:#fff6f9;
+  --ink:#1f2937;
+  --card: rgba(255,255,255,0.88);
+  --shadow: rgba(0,0,0,0.22);
+  --green:#16a34a;
+  --red:#ef4444;
+  --gold:#f59e0b;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(circle at top, var(--pink1) 0%, var(--pink2) 45%, #7a1fff 130%);
+  overflow:hidden;
+  color:var(--ink);
+}
+
+.bg-hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:0.35;
+}
+
+.heart{
+  position:absolute;
+  font-size:22px;
+  transform: translateY(110vh);
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp{
+  to{ transform: translateY(-20vh) rotate(10deg); }
+}
+
+.card{
+  width:min(600px, 92vw);
+  background:var(--card);
+  border:1px solid rgba(255,255,255,0.35);
+  border-radius:26px;
+  padding:26px 22px 22px;
+  box-shadow: 0 22px 70px var(--shadow);
+  backdrop-filter: blur(10px);
+  text-align:center;
+  position:relative;
+}
+
+.top .emoji{
+  font-size:44px;
+  margin-bottom:8px;
+}
+h1{
+  margin:0 0 6px;
+  font-size: clamp(28px, 4.6vw, 42px);
+  letter-spacing:-0.02em;
+}
+.subtitle{
+  margin:0 0 18px;
+  opacity:0.85;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:14px;
+  position:relative;
+  min-height:56px;
+}
+
+.btn{
+  border:0;
+  padding:12px 20px;
+  font-weight:800;
+  font-size:16px;
+  border-radius:999px;
+  cursor:pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  user-select:none;
+}
+.btn:active{ transform: scale(0.98); }
+
+.yes{
+  background: var(--green);
+  color:white;
+  box-shadow: 0 14px 28px rgba(22,163,74,0.25);
+}
+.yes:hover{ transform: translateY(-1px); }
+
+.no{
+  background: var(--red);
+  color:white;
+  box-shadow: 0 14px 28px rgba(239,68,68,0.20);
+  position:relative;
+}
+.no:hover{ transform: translateY(-1px); }
+
+.hint{
+  margin:14px 0 0;
+  font-size:14px;
+  opacity:0.7;
+}
+
+/* --- Puppy (simple CSS illustration) --- */
+.puppy{
+  display:grid;
+  place-items:center;
+  margin: 10px 0 6px;
+}
+.face{
+  position:relative;
+  width:180px;
+  height:160px;
+}
+.ear{
+  position:absolute;
+  width:70px;
+  height:80px;
+  background:#b7791f;
+  border-radius: 60px 60px 20px 20px;
+  top:8px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+}
+.ear-left{ left:0; transform: rotate(-18deg); }
+.ear-right{ right:0; transform: rotate(18deg); }
+
+.head{
+  position:absolute;
+  left:50%;
+  top:22px;
+  transform: translateX(-50%);
+  width:140px;
+  height:130px;
+  background:#f0c27b;
+  border-radius: 70px;
+  box-shadow: 0 14px 26px rgba(0,0,0,0.12);
+  border: 2px solid rgba(0,0,0,0.04);
+}
+
+.eye{
+  position:absolute;
+  width:14px;
+  height:14px;
+  background:#111827;
+  border-radius:50%;
+  top:42px;
+}
+.eye-left{ left:40px; }
+.eye-right{ right:40px; }
+
+.snout{
+  position:absolute;
+  left:50%;
+  top:62px;
+  transform: translateX(-50%);
+  width:86px;
+  height:62px;
+  background:#ffe7cc;
+  border-radius: 46px;
+  border: 2px solid rgba(0,0,0,0.04);
+}
+
+.nose{
+  position:absolute;
+  left:50%;
+  top:12px;
+  transform: translateX(-50%);
+  width:18px;
+  height:14px;
+  background:#111827;
+  border-radius: 10px 10px 14px 14px;
+}
+.mouth{
+  position:absolute;
+  left:50%;
+  top:30px;
+  transform: translateX(-50%);
+  width:26px;
+  height:14px;
+  border-bottom: 3px solid rgba(17,24,39,0.8);
+  border-radius: 0 0 30px 30px;
+}
+.paw{
+  margin-top:8px;
+  font-size:26px;
+  opacity:0.9;
+}
+
+/* --- Popup --- */
+.popup{
+  position:fixed;
+  inset:0;
+  display:none;
+  place-items:center;
+  padding:18px;
+  background: rgba(0,0,0,0.35);
+}
+.popup-box{
+  width:min(520px, 92vw);
+  background: rgba(255,255,255,0.93);
+  border-radius:22px;
+  padding:22px;
+  text-align:center;
+  box-shadow: 0 22px 80px rgba(0,0,0,0.35);
+}
+.popup-box h2{ margin:0 0 8px; font-size:28px; }
+.popup-box p{ margin:0 0 12px; }
+.popup-box .small{ opacity:0.75; font-size:14px; }
+.close{
+  background:#111827;
+  color:white;
+}
